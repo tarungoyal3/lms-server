@@ -21,10 +21,16 @@ const app = express();
 //default middlewares
 app.use(express.json())
 app.use(cookieParser())
+// app.use(cors({
+//     origin:"http://localhost:5173",
+//     credentials:true
+// }))
+
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}))
+    origin: ["http://localhost:5173", "https://lms-client-sage.vercel.app"], // add your deployed URL
+    credentials: true
+}));
+
 
 //apis
 //https://localhost:8080/api/v1/user/register
