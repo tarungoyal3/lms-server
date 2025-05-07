@@ -12,5 +12,4 @@ router.get("/profile",isAuthenticated,getUserProfile);
 router.put("/profile/update",isAuthenticated, upload.single("profilePhoto"),updateProfile)
 
 
-
 export default router

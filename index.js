@@ -8,6 +8,12 @@ import courseRoute from "./routes/courseRoute.js"
 import mediaRoute from "./routes/mediaRoute.js"
 import purchaseRoute from "./routes/purchaseCourseRoute.js"
 import courseProgressRoute from "./routes/courseProgressRoute.js"
+import aiRoute from "./routes/aiRoute.js";
+import revisionBuddyRoute from "./routes/revisionBuddy.js"
+import quizRoute from "./routes/quizGenerator.js"
+import schedulerRoute from "./routes/schedulerRoutes.js"
+import faqRoutes from "./routes/faqRoutes.js"
+// import quizRoutes from "./routes/quizRoutes.js"
 
 //load the dotenv file
 dotenv.config();
@@ -39,6 +45,12 @@ app.use("/api/v1/user",userRoute)
 app.use("/api/v1/course",courseRoute)
 app.use("/api/v1/purchase",purchaseRoute);
 app.use("/api/v1/progress",courseProgressRoute);
+app.use("/api/v1/ai", aiRoute);
+app.use("/api/v1/revision", revisionBuddyRoute);
+app.use("/api/v1/quiz", quizRoute);
+app.use("/api/v1/scheduler", schedulerRoute);
+app.use("/api/v1/faqs", faqRoutes);
+// app.use('/api/quiz', quizRoutes);
 
 app.get("/home",(_,res)=>{
     res.status(200).json({
