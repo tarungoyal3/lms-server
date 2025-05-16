@@ -145,13 +145,7 @@ export const editCourse = async (req, res) => {
     }
 }
 
-// export const deleteCourse = async(req,res)=>{
-//     try {
-//         const {courseId} = req.params;
-//     } catch (error) {
-        
-//     }
-// }
+
 
 //Controller for getting details of course with id.
 export const getCourseById = async (req, res) => {

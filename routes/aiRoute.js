@@ -1,35 +1,3 @@
-// // routes/aiRoute.js
-// import express from "express";
-// // import { askAiTutor } from "../controllers/aiController.js";
-// import isAuthenticated from "../middlewares/isAuthenticated.js";
-// import { askAiTutor } from "../controllers/aiController.js";
-
-// const router = express.Router();
-
-// router.post("/ask", isAuthenticated, askAiTutor);
-
-// export default router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // routes/aiRoutes.js
 // import Faq from "../models/Faq.js";
 import axios from "axios";

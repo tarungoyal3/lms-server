@@ -82,17 +82,6 @@ export const login = async (req, res) => {
         // Generate token and return user data
         generateToken(res, user, `Welcome back ${user.name}`);
 
-        // return res.status(200).json({
-        //     success: true,
-        //     message: "Login successful",
-        //     user: {
-        //         _id: user._id,
-        //         name: user.name,
-        //         email: user.email,
-        //         role: user.role,
-        //     },
-        // });
-
     } catch (err) {
         console.error("Error during login:", err);
         return res.status(500).json({

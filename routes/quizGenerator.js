@@ -37,7 +37,7 @@ Lecture Titles:\n${lectureTitles}
         headers: {
           Authorization: `Bearer ${process.env.OPEN_ROUTE_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "https://yourdomain.com" // change if needed
+          "HTTPS-Referer": "http://localhost:5173" // change if needed
         }
       }
     );

@@ -1,8 +1,15 @@
 import express from "express";
-const router = express.Router();
 import axios from "axios";
+const router = express.Router();
 
 router.post("/generate-summary", async (req, res) => {
+  const OPENROUTER_KEY = process.env.OPEN_ROUTE_KEY;
+  console.log("OPEN_ROUTE_KEY:", process.env.OPEN_ROUTE_KEY);
+
+  if (!OPENROUTER_KEY) {
+    return res.status(500).json({ message: "API key not set in environment." });
+  }
+
   const { lectures } = req.body;
 
   if (!lectures || lectures.length === 0) {
@@ -36,8 +43,8 @@ Lecture Titles:\n${lectureTitles}
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.OPEN_ROUTE_KEY}`,
-          "HTTP-Referer": "https://yourdomain.com", // Change if needed
+          Authorization: `Bearer ${OPENROUTER_KEY}`,
+          "HTTP-Referer": "http://localhost:5173", // must match what you used during API key registration
           "Content-Type": "application/json",
         },
       }
@@ -47,9 +54,12 @@ Lecture Titles:\n${lectureTitles}
     res.json({ summary });
   } catch (error) {
     console.error("Revision Buddy Error:", error?.response?.data || error.message);
-    res.status(500).json({ message: "Failed to generate revision summary." });
-  }
+    res.status(500).json({
+      message: "Failed to generate revision summary.",
+      error: error?.response?.data || error.message,
+    });
+  }  
 });
 
-// module.exports = router;
-export default router
+export default router;
+

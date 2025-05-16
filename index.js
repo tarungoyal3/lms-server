@@ -19,6 +19,9 @@ import faqRoutes from "./routes/faqRoutes.js"
 dotenv.config();
 const PORT = process.env.PORT;
 
+// console.log("OPEN_ROUTE_KEY:", process.env.OPEN_ROUTE_KEY);
+
+
 //connecting the DB
 connectDB();
 
@@ -33,7 +36,7 @@ app.use(cookieParser())
 // }))
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://lms-client-sage.vercel.app"], // add your deployed URL
+    origin: "http://localhost:5173", // add your deployed URL
     credentials: true
 }));
 

@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export const createCheckoutSession = async (req, res) => {
   try {
     const userId = req.id;
-    const { courseId } = req.body; // ✅ Fix here
+    const { courseId } = req.body; 
 
     const course = await Course.findById(courseId);
     if (!course) return res.status(404).json({ message: "Course not found!" });

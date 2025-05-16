@@ -7,7 +7,7 @@ export async function fetchFromOpenRouter(prompt) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: "openai/gpt-3.5-turbo", // Or another model you've used earlier
+          model: "openai/gpt-3.5-turbo", 
           messages: [
             { role: "system", content: "You are a helpful assistant for smart scheduling." },
             { role: "user", content: prompt },

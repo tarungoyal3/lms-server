@@ -17,7 +17,6 @@ const isAuthenticated = async (req, res, next) => {
         // Attach the userId from the decoded token to the request
         req.id = decoded.userId;
 
-        // Continue with the request
         next();
     } catch (error) {
         // If JWT verification fails, respond with an error
