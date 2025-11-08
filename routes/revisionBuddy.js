@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 const router = express.Router();
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 router.post("/generate-summary", async (req, res) => {
   const OPENROUTER_KEY = process.env.OPEN_ROUTE_KEY;
@@ -44,7 +45,7 @@ Lecture Titles:\n${lectureTitles}
       {
         headers: {
           Authorization: `Bearer ${OPENROUTER_KEY}`,
-          "HTTP-Referer": "http://localhost:5173", // must match what you used during API key registration
+          "HTTP-Referer": FRONTEND_URL, // must match what you used during API key registration
           "Content-Type": "application/json",
         },
       }

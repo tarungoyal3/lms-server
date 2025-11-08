@@ -21,6 +21,8 @@ const PORT = process.env.PORT;
 
 // console.log("OPEN_ROUTE_KEY:", process.env.OPEN_ROUTE_KEY);
 
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+
 
 //connecting the DB
 connectDB();
@@ -36,7 +38,8 @@ app.use(cookieParser())
 // }))
 
 app.use(cors({
-    origin: "http://localhost:5173", // add your deployed URL
+    //origin: "http://localhost:5173", // add your deployed URL
+    origin: FRONTEND_URL, // add your deployed URL
     credentials: true
 }));
 

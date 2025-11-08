@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const askAiTutor = async (req, res) => {
   const { question } = req.body;
+  const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
   console.log('Received question:', question);
 
   if (!question || !question.trim()) {
@@ -19,7 +20,8 @@ export const askAiTutor = async (req, res) => {
         headers: {
           Authorization: `Bearer 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`, // your OpenRouter key
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
+          //"HTTP-Referer": "http://localhost:5173",
+          "HTTP-Referer": FRONTEND_URL,
           "X-Title": "LMS Doubt Solver",
         },
       }

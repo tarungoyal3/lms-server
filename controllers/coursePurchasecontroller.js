@@ -5,6 +5,7 @@ import { Lecture } from "../models/lecturemodel.js"
 import { User } from "../models/usermodel.js"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 export const createCheckoutSession = async (req, res) => {
   try {
@@ -37,8 +38,10 @@ export const createCheckoutSession = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:5173/course-progress/${courseId}`,
-      cancel_url: `http://localhost:5173/course-detail/${courseId}`,
+      //success_url: `http://localhost:5173/course-progress/${courseId}`,
+      success_url: `${FRONTEND_URL}/course-progress/${courseId}`,
+      //cancel_url: `http://localhost:5173/course-detail/${courseId}`,
+      cancel_url: `${FRONTEND_URL}/course-detail/${courseId}`,
       metadata: {
         courseId: courseId,
         userId: userId,

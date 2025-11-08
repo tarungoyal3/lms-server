@@ -3,6 +3,7 @@ import express from "express";
 import axios from "axios";
 
 const router = express.Router();
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 router.post("/generate-quiz", async (req, res) => {
   const { lectures } = req.body;
@@ -37,7 +38,7 @@ Lecture Titles:\n${lectureTitles}
         headers: {
           Authorization: `Bearer ${process.env.OPEN_ROUTE_KEY}`,
           "Content-Type": "application/json",
-          "HTTPS-Referer": "http://localhost:5173" // change if needed
+          "HTTPS-Referer": FRONTEND_URL // change if needed
         }
       }
     );
